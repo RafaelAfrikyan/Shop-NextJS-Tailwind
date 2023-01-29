@@ -1,19 +1,7 @@
-import Link from "next/link";
+import LogInSignUp from "@/Components/LogInOrSignUp/LogInSignUp";
 
-type T_TYPES = {};
-
-const SignUp: T_TYPES = () => {
-  return (
-    <section>
-      <h1> This is SignUp page</h1>
-      <button>
-        <Link href={"/login"}>Log In</Link>
-      </button>
-      <button>
-        <Link href={"/"}>Home</Link>
-      </button>
-    </section>
-  );
+const SignUp = () => {
+  return <LogInSignUp isSignUp={true} />;
 };
 
 export default SignUp;
