@@ -1,6 +1,8 @@
 import { classNames } from "@/Helpers/Functions/functions";
 import { useRouter } from "next/router";
-
+import Image from "next/image";
+import FemaleAuto from "@/assets/images/LogInSignUp/FemaleAuto.jpg";
+import Logo from "@/assets/images/Logo.svg";
 type T_Props = {
   isSignUp: boolean;
 };
@@ -17,14 +19,18 @@ export default function LogInSignUp({ isSignUp }: T_Props) {
         <div className="flex-1 flex flex-col justify-start py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
           <div className="mx-auto  w-full max-w-sm lg:w-96">
             <div>
-              <img
+              {/* <img
                 className={classNames(
                   isSignUp ? "h-12 w-auto  mb-10" : "h-12 w-auto  mb-24"
                 )}
                 src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
                 alt="Workflow"
                 onClick={handleClick}
-              />
+              /> */}
+                  <Image src={Logo}  onClick={handleClick} alt="logo" className={classNames(
+                  isSignUp ? "h-12 w-auto  mb-10" : "h-12 w-auto  mb-24"
+                )} />
+
               <h2 className="mt-6 text-3xl font-extrabold text-gray-900">
                 {isSignUp ? "Գրանցվել" : "Մուտք գործել"}
               </h2>
@@ -202,10 +208,15 @@ export default function LogInSignUp({ isSignUp }: T_Props) {
           </div>
         </div>
         <div className="hidden lg:block relative w-0 flex-1">
-          <img
+          {/* <img
             className="absolute inset-0 h-full w-full object-cover"
-            src="https://static.vecteezy.com/system/resources/previews/004/404/780/original/female-automotive-mechanic-repair-car-free-vector.jpg"
+            src={FemaleAuto}
             alt=""
+          /> */}
+          <Image
+            alt="sorry"
+            src={FemaleAuto}
+            className="absolute inset-0 h-full w-full object-cover"
           />
         </div>
       </div>

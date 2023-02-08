@@ -12,13 +12,13 @@ const Layout = ({ children }: T_Props) => {
 
   return (
     <>
-      {router.pathname !== "/login" && router.pathname !== "/signup" && (
-        <Header />
-      )}
+      {router.pathname !== "/login" &&
+        router.pathname !== "/signup" &&
+        router.pathname !== "/registration" && <Header />}
       <main>{children}</main>
-      {/* {router.pathname !== "/login" && router.pathname !== "/signup" && (
-        <Footer />
-      )} */}
+      {router.pathname !== "/login" &&
+        router.pathname !== "/signup" &&
+        router.pathname !== "/registration" && <Footer />}
     </>
   );
 };

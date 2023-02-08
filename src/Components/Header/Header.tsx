@@ -1,6 +1,7 @@
 type T_Props = {};
 import { classNames } from "@/Helpers/Functions/functions";
 import { Fragment, useState } from "react";
+import Logo from "@/assets/images/Logo.svg";
 import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
 import {
   MenuIcon,
@@ -10,6 +11,7 @@ import {
 } from "@heroicons/react/outline";
 import { navigation } from "@/Helpers/Constants/constants";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -207,7 +209,7 @@ export default function Header() {
           className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         >
           <div className="border-b border-gray-200">
-            <div className="h-16 flex items-center">
+            <div className="h-20 flex items-center">
               <button
                 type="button"
                 className="bg-white p-2 rounded-md text-gray-400 lg:hidden"
@@ -218,14 +220,15 @@ export default function Header() {
               </button>
 
               {/* Logo */}
-              <div className="ml-4 flex lg:ml-0">
+              <div className=" flex mt-2  lg:ml-0">
                 <a href="#">
                   <span className="sr-only">Workflow</span>
-                  <img
+                  <Image src={Logo} alt="logo" className="h-24 ml-0 w-auto" />
+                  {/* <img
                     className="h-8 w-auto"
                     src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600"
                     alt=""
-                  />
+                  /> */}
                 </a>
               </div>
 
@@ -370,45 +373,8 @@ export default function Header() {
                     }}
                     className="text-sm font-medium text-gray-700 hover:text-gray-800"
                   >
-                    Գրանցվել
+                    Դառնալ վաճառող
                   </button>
-                </div>
-
-                <div className="hidden lg:ml-8 lg:flex">
-                  <a
-                    href="#"
-                    className="text-gray-700 hover:text-gray-800 flex items-center"
-                  >
-                    <img
-                      src="https://tailwindui.com/img/flags/flag-canada.svg"
-                      alt=""
-                      className="w-5 h-auto block flex-shrink-0"
-                    />
-                    <span className="ml-3 block text-sm font-medium">CAD</span>
-                    <span className="sr-only">, change currency</span>
-                  </a>
-                </div>
-
-                {/* Search */}
-                <div className="flex lg:ml-6">
-                  <a href="#" className="p-2 text-gray-400 hover:text-gray-500">
-                    <span className="sr-only">Search</span>
-                    <SearchIcon className="w-6 h-6" aria-hidden="true" />
-                  </a>
-                </div>
-
-                {/* Cart */}
-                <div className="ml-4 flow-root lg:ml-6">
-                  <a href="#" className="group -m-2 p-2 flex items-center">
-                    <ShoppingBagIcon
-                      className="flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-gray-500"
-                      aria-hidden="true"
-                    />
-                    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
-                      0
-                    </span>
-                    <span className="sr-only">items in cart, view bag</span>
-                  </a>
                 </div>
               </div>
             </div>
