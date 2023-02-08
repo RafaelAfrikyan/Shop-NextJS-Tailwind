@@ -14,11 +14,11 @@ const Layout = ({ children }: T_Props) => {
     <>
       {router.pathname !== "/login" &&
         router.pathname !== "/signup" &&
-        router.pathname !== "/registration" && <Header />}
+        router.pathname !== "/profile" && <Header />}
       <main>{children}</main>
       {router.pathname !== "/login" &&
         router.pathname !== "/signup" &&
-        router.pathname !== "/registration" && <Footer />}
+        router.pathname !== "/profile" && <Footer />}
     </>
   );
 };
