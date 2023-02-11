@@ -1,3 +1,5 @@
+import Logo from "@/assets/images/Logo.svg";
+
 /*
   This example requires Tailwind CSS v2.0+ 
   
@@ -25,7 +27,7 @@
   ```
 */
 import { Fragment, useState } from "react";
-import { Disclosure, Menu, Switch, Transition } from "@headlessui/react";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { SearchIcon } from "@heroicons/react/solid";
 import {
   BellIcon,
@@ -38,6 +40,8 @@ import {
   XIcon,
 } from "@heroicons/react/outline";
 import { classNames } from "@/Helpers/Functions/functions";
+import Image from "next/image";
+import LocationInput from "@/Components/LocationInput/LocationInput";
 
 const user = {
   name: "Debbie Lewis",
@@ -53,12 +57,16 @@ const navigation = [
   { name: "Company", href: "#", current: false },
 ];
 const subNavigation = [
-  { name: "Profile", href: "#", icon: UserCircleIcon, current: true },
-  { name: "Account", href: "#", icon: CogIcon, current: false },
-  { name: "Password", href: "#", icon: KeyIcon, current: false },
-  { name: "Notifications", href: "#", icon: BellIcon, current: false },
-  { name: "Billing", href: "#", icon: CreditCardIcon, current: false },
-  { name: "Integrations", href: "#", icon: ViewGridAddIcon, current: false },
+  { name: "Օգտահաշիվ", href: "#", icon: UserCircleIcon, current: true },
+  // { name: "Account", href: "#", icon: CogIcon, current: false },
+  { name: "Գաղտնաբառ", href: "#", icon: KeyIcon, current: false },
+  // { name: "Notifications", href: "#", icon: BellIcon, current: false },
+  {
+    name: "Վաճառվող ապրանքներ",
+    href: "#",
+    icon: CreditCardIcon,
+    current: false,
+  },
 ];
 const userNavigation = [
   { name: "Your Profile", href: "#" },
@@ -76,7 +84,7 @@ export default function Profile() {
     <div>
       <Disclosure
         as="div"
-        className="relative bg-sky-700 pb-32 overflow-hidden"
+        className="relative bg-gradient-to-r from-violet-500 to-fuchsia-500  pb-32 overflow-hidden"
       >
         {({ open }) => (
           <>
@@ -90,53 +98,14 @@ export default function Profile() {
                 <div className="relative h-16 flex items-center justify-between lg:border-b lg:border-sky-800">
                   <div className="px-2 flex items-center lg:px-0">
                     <div className="flex-shrink-0">
-                      <img
-                        className="block h-8 w-auto"
-                        src="https://tailwindui.com/img/logos/workflow-mark-teal-400.svg"
+                      <Image
+                        className="block h-14 w-auto"
+                        src={Logo}
                         alt="Workflow"
                       />
                     </div>
-                    <div className="hidden lg:block lg:ml-6 lg:space-x-4">
-                      <div className="flex">
-                        {navigation.map((item) => (
-                          <a
-                            key={item.name}
-                            href={item.href}
-                            className={classNames(
-                              item.current
-                                ? "bg-black bg-opacity-25"
-                                : "hover:bg-sky-800",
-                              "rounded-md py-2 px-3 text-sm font-medium text-white"
-                            )}
-                          >
-                            {item.name}
-                          </a>
-                        ))}
-                      </div>
-                    </div>
                   </div>
-                  <div className="flex-1 px-2 flex justify-center lg:ml-6 lg:justify-end">
-                    <div className="max-w-lg w-full lg:max-w-xs">
-                      <label htmlFor="search" className="sr-only">
-                        Search
-                      </label>
-                      <div className="relative text-sky-100 focus-within:text-gray-400">
-                        <div className="pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center">
-                          <SearchIcon
-                            className="flex-shrink-0 h-5 w-5"
-                            aria-hidden="true"
-                          />
-                        </div>
-                        <input
-                          id="search"
-                          name="search"
-                          className="block w-full bg-sky-700 bg-opacity-50 py-2 pl-10 pr-3 border border-transparent rounded-md leading-5 placeholder-sky-100 focus:outline-none focus:bg-white focus:ring-white focus:border-white focus:placeholder-gray-500 focus:text-gray-900 sm:text-sm"
-                          placeholder="Search"
-                          type="search"
-                        />
-                      </div>
-                    </div>
-                  </div>
+
                   <div className="flex lg:hidden">
                     {/* Mobile menu button */}
                     <Disclosure.Button className="p-2 rounded-md inline-flex items-center justify-center text-sky-200 hover:text-white hover:bg-sky-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
@@ -267,55 +236,6 @@ export default function Profile() {
                 </div>
               </Disclosure.Panel>
             </nav>
-            <div
-              aria-hidden="true"
-              className={classNames(
-                open ? "bottom-0" : "inset-y-0",
-                "absolute inset-x-0 left-1/2 transform -translate-x-1/2 w-full overflow-hidden lg:inset-y-0"
-              )}
-            >
-              <div className="absolute inset-0 flex">
-                <div
-                  className="h-full w-1/2"
-                  style={{ backgroundColor: "#0a527b" }}
-                />
-                <div
-                  className="h-full w-1/2"
-                  style={{ backgroundColor: "#065d8c" }}
-                />
-              </div>
-              <div className="relative flex justify-center">
-                <svg
-                  className="flex-shrink-0"
-                  width={1750}
-                  height={308}
-                  viewBox="0 0 1750 308"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M284.161 308H1465.84L875.001 182.413 284.161 308z"
-                    fill="#0369a1"
-                  />
-                  <path
-                    d="M1465.84 308L16.816 0H1750v308h-284.16z"
-                    fill="#065d8c"
-                  />
-                  <path
-                    d="M1733.19 0L284.161 308H0V0h1733.19z"
-                    fill="#0a527b"
-                  />
-                  <path
-                    d="M875.001 182.413L1733.19 0H16.816l858.185 182.413z"
-                    fill="#0a4f76"
-                  />
-                </svg>
-              </div>
-            </div>
-            <header className="relative py-10">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h1 className="text-3xl font-bold text-white">Settings</h1>
-              </div>
-            </header>
           </>
         )}
       </Disclosure>
@@ -362,11 +282,10 @@ export default function Profile() {
                 <div className="py-6 px-4 sm:p-6 lg:pb-8">
                   <div>
                     <h2 className="text-lg leading-6 font-medium text-gray-900">
-                      Profile
+                      Օգտահաշիվ
                     </h2>
                     <p className="mt-1 text-sm text-gray-500">
-                      This information will be displayed publicly so be careful
-                      what you share.
+                      Այս տեղեկատվությունը հասանելի է լինելու ձեր հաճախորդներին
                     </p>
                   </div>
 
@@ -377,11 +296,11 @@ export default function Profile() {
                           htmlFor="username"
                           className="block text-sm font-medium text-gray-700"
                         >
-                          Username
+                          Խանութի URL
                         </label>
                         <div className="mt-1 rounded-md shadow-sm flex">
                           <span className="bg-gray-50 border border-r-0 border-gray-300 rounded-l-md px-3 inline-flex items-center text-gray-500 sm:text-sm">
-                            workcation.com/
+                            autoshop.am/
                           </span>
                           <input
                             type="text"
@@ -393,13 +312,14 @@ export default function Profile() {
                           />
                         </div>
                       </div>
+                      {/* <div><LocationInput /></div> autocomplate Location intput */}
 
                       <div>
                         <label
                           htmlFor="about"
                           className="block text-sm font-medium text-gray-700"
                         >
-                          About
+                          Խանութի մասին
                         </label>
                         <div className="mt-1">
                           <textarea
@@ -422,7 +342,7 @@ export default function Profile() {
                         className="text-sm font-medium text-gray-700"
                         aria-hidden="true"
                       >
-                        Photo
+                        Լուսանկար
                       </p>
                       <div className="mt-1 lg:hidden">
                         <div className="flex items-center">
@@ -466,7 +386,7 @@ export default function Profile() {
                           htmlFor="desktop-user-photo"
                           className="absolute inset-0 w-full h-full bg-black bg-opacity-75 flex items-center justify-center text-sm font-medium text-white opacity-0 hover:opacity-100 focus-within:opacity-100"
                         >
-                          <span>Change</span>
+                          <span>Փոխել</span>
                           <span className="sr-only"> user photo</span>
                           <input
                             type="file"
@@ -480,28 +400,28 @@ export default function Profile() {
                   </div>
 
                   <div className="mt-6 grid grid-cols-12 gap-6">
-                    <div className="col-span-12 sm:col-span-6">
-                      <label
+                    {/* <div className="col-span-12 sm:col-span-6"> */}
+                    {/* <label
                         htmlFor="first-name"
                         className="block text-sm font-medium text-gray-700"
                       >
                         First name
-                      </label>
-                      <input
+                      </label> */}
+                    {/* <input
                         type="text"
                         name="first-name"
                         id="first-name"
                         autoComplete="given-name"
                         className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
                       />
-                    </div>
+                    </div> */}
 
-                    <div className="col-span-12 sm:col-span-6">
+                    <div className="col-span-8 ">
                       <label
                         htmlFor="last-name"
                         className="block text-sm font-medium text-gray-700"
                       >
-                        Last name
+                        Խանութի անունը
                       </label>
                       <input
                         type="text"
@@ -512,12 +432,12 @@ export default function Profile() {
                       />
                     </div>
 
-                    <div className="col-span-12">
+                    <div className="col-span-8 ">
                       <label
                         htmlFor="url"
                         className="block text-sm font-medium text-gray-700"
                       >
-                        URL
+                        Հասցե
                       </label>
                       <input
                         type="text"
@@ -529,10 +449,41 @@ export default function Profile() {
 
                     <div className="col-span-12 sm:col-span-6">
                       <label
+                        htmlFor="phone-number"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Հեռախոսահամար
+                      </label>
+                      <div className="mt-1 relative rounded-md shadow-sm">
+                        <div className="absolute inset-y-0 left-0 flex items-center">
+                          <label htmlFor="country" className="sr-only">
+                            Երկիր
+                          </label>
+                          <select
+                            id="country"
+                            name="country"
+                            autoComplete="country"
+                            className="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-3 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md"
+                          >
+                            <option>AM</option>
+                            <option>RU</option>
+                          </select>
+                        </div>
+                        <input
+                          type="text"
+                          name="phone-number"
+                          id="phone-number"
+                          className="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-16 sm:text-sm border-gray-300 rounded-md"
+                          placeholder="+374 00 00 00 "
+                        />
+                      </div>
+                    </div>
+                    <div className="col-span-6">
+                      <label
                         htmlFor="company"
                         className="block text-sm font-medium text-gray-700"
                       >
-                        Company
+                        Աշխատանքային ժամեր
                       </label>
                       <input
                         type="text"
@@ -543,180 +494,25 @@ export default function Profile() {
                       />
                     </div>
                   </div>
+                  <div className="pt-5">
+                    <div className="flex justify-end">
+                      <button
+                        type="button"
+                        className="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        type="submit"
+                        className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      >
+                        Save
+                      </button>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Privacy section */}
-                <div className="pt-6 divide-y divide-gray-200">
-                  <div className="px-4 sm:px-6">
-                    <div>
-                      <h2 className="text-lg leading-6 font-medium text-gray-900">
-                        Privacy
-                      </h2>
-                      <p className="mt-1 text-sm text-gray-500">
-                        Ornare eu a volutpat eget vulputate. Fringilla commodo
-                        amet.
-                      </p>
-                    </div>
-                    <ul role="list" className="mt-2 divide-y divide-gray-200">
-                      <Switch.Group
-                        as="li"
-                        className="py-4 flex items-center justify-between"
-                      >
-                        <div className="flex flex-col">
-                          <Switch.Label
-                            as="p"
-                            className="text-sm font-medium text-gray-900"
-                            passive
-                          >
-                            Available to hire
-                          </Switch.Label>
-                          <Switch.Description className="text-sm text-gray-500">
-                            Nulla amet tempus sit accumsan. Aliquet turpis sed
-                            sit lacinia.
-                          </Switch.Description>
-                        </div>
-                        <Switch
-                          checked={availableToHire}
-                          onChange={setAvailableToHire}
-                          className={classNames(
-                            availableToHire ? "bg-teal-500" : "bg-gray-200",
-                            "ml-4 relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
-                          )}
-                        >
-                          <span
-                            aria-hidden="true"
-                            className={classNames(
-                              availableToHire
-                                ? "translate-x-5"
-                                : "translate-x-0",
-                              "inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200"
-                            )}
-                          />
-                        </Switch>
-                      </Switch.Group>
-                      <Switch.Group
-                        as="li"
-                        className="py-4 flex items-center justify-between"
-                      >
-                        <div className="flex flex-col">
-                          <Switch.Label
-                            as="p"
-                            className="text-sm font-medium text-gray-900"
-                            passive
-                          >
-                            Make account private
-                          </Switch.Label>
-                          <Switch.Description className="text-sm text-gray-500">
-                            Pharetra morbi dui mi mattis tellus sollicitudin
-                            cursus pharetra.
-                          </Switch.Description>
-                        </div>
-                        <Switch
-                          checked={privateAccount}
-                          onChange={setPrivateAccount}
-                          className={classNames(
-                            privateAccount ? "bg-teal-500" : "bg-gray-200",
-                            "ml-4 relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
-                          )}
-                        >
-                          <span
-                            aria-hidden="true"
-                            className={classNames(
-                              privateAccount
-                                ? "translate-x-5"
-                                : "translate-x-0",
-                              "inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200"
-                            )}
-                          />
-                        </Switch>
-                      </Switch.Group>
-                      <Switch.Group
-                        as="li"
-                        className="py-4 flex items-center justify-between"
-                      >
-                        <div className="flex flex-col">
-                          <Switch.Label
-                            as="p"
-                            className="text-sm font-medium text-gray-900"
-                            passive
-                          >
-                            Allow commenting
-                          </Switch.Label>
-                          <Switch.Description className="text-sm text-gray-500">
-                            Integer amet, nunc hendrerit adipiscing nam.
-                            Elementum ame
-                          </Switch.Description>
-                        </div>
-                        <Switch
-                          checked={allowCommenting}
-                          onChange={setAllowCommenting}
-                          className={classNames(
-                            allowCommenting ? "bg-teal-500" : "bg-gray-200",
-                            "ml-4 relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
-                          )}
-                        >
-                          <span
-                            aria-hidden="true"
-                            className={classNames(
-                              allowCommenting
-                                ? "translate-x-5"
-                                : "translate-x-0",
-                              "inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200"
-                            )}
-                          />
-                        </Switch>
-                      </Switch.Group>
-                      <Switch.Group
-                        as="li"
-                        className="py-4 flex items-center justify-between"
-                      >
-                        <div className="flex flex-col">
-                          <Switch.Label
-                            as="p"
-                            className="text-sm font-medium text-gray-900"
-                            passive
-                          >
-                            Allow mentions
-                          </Switch.Label>
-                          <Switch.Description className="text-sm text-gray-500">
-                            Adipiscing est venenatis enim molestie commodo eu
-                            gravid
-                          </Switch.Description>
-                        </div>
-                        <Switch
-                          checked={allowMentions}
-                          onChange={setAllowMentions}
-                          className={classNames(
-                            allowMentions ? "bg-teal-500" : "bg-gray-200",
-                            "ml-4 relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
-                          )}
-                        >
-                          <span
-                            aria-hidden="true"
-                            className={classNames(
-                              allowMentions ? "translate-x-5" : "translate-x-0",
-                              "inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200"
-                            )}
-                          />
-                        </Switch>
-                      </Switch.Group>
-                    </ul>
-                  </div>
-                  <div className="mt-4 py-4 px-4 flex justify-end sm:px-6">
-                    <button
-                      type="button"
-                      className="bg-white border border-gray-300 rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
-                    >
-                      Cancel
-                    </button>
-                    <button
-                      type="submit"
-                      className="ml-5 bg-sky-700 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-sky-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
-                    >
-                      Save
-                    </button>
-                  </div>
-                </div>
               </form>
             </div>
           </div>
