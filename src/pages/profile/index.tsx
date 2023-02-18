@@ -43,6 +43,7 @@ import { classNames } from "@/Helpers/Functions/functions";
 import Image from "next/image";
 import LocationInput from "@/Components/LocationInput/LocationInput";
 import ProfileSection from "@/Components/ProfileSection";
+import Product from "@/Components/Products/Product";
 
 const user = {
   name: "Debbie Lewis",
@@ -58,17 +59,30 @@ const navigation = [
   { name: "Company", href: "#", current: false },
 ];
 const subNavigation = [
-  { name: "Օգտահաշիվ", href: "#", icon: UserCircleIcon, current: true },
+  {
+    name: "Օգտահաշիվ",
+    id: "profile",
+    href: "#",
+    icon: UserCircleIcon,
+    current: true,
+  },
   // { name: "Account", href: "#", icon: CogIcon, current: false },
   // { name: "Notifications", href: "#", icon: BellIcon, current: false },
   {
     name: "Վաճառվող ապրանքներ",
-    href: "/products",
     icon: CreditCardIcon,
     current: false,
+    id: "product",
+    href: "#",
   },
 
-  { name: "Գաղտնաբառ", href: "/password", icon: KeyIcon, current: false },
+  {
+    name: "Գաղտնաբառ",
+    id: "password",
+    href: "#",
+    icon: KeyIcon,
+    current: false,
+  },
 ];
 const userNavigation = [
   { name: "Your Profile", href: "#" },
@@ -81,6 +95,7 @@ export default function Profile() {
   const [privateAccount, setPrivateAccount] = useState(false);
   const [allowCommenting, setAllowCommenting] = useState(true);
   const [allowMentions, setAllowMentions] = useState(true);
+  const [activeSection, setActiveSection] = useState("profile");
 
   return (
     <div>
@@ -100,11 +115,12 @@ export default function Profile() {
                 <div className="relative h-16 flex items-center justify-between lg:border-b lg:border-sky-800">
                   <div className="px-2 flex items-center lg:px-0">
                     <div className="flex-shrink-0">
-                      <Image
-                        className="block h-14 w-auto"
-                        src={Logo}
-                        alt="Workflow"
-                      />
+                      <button
+                        type="button"
+                        className="inline-flex  mx-auto items-center px-6 py-3 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      >
+                        Ավելացնել ապրանք +
+                      </button>
                     </div>
                   </div>
 
@@ -253,12 +269,13 @@ export default function Profile() {
                       key={item.name}
                       href={item.href}
                       className={classNames(
-                        item.current
+                        activeSection === item.id
                           ? "bg-teal-50 border-teal-500 text-teal-700 hover:bg-teal-50 hover:text-teal-700"
                           : "border-transparent text-gray-900 hover:bg-gray-50 hover:text-gray-900",
                         "group border-l-4 px-3 py-2 flex items-center text-sm font-medium"
                       )}
                       aria-current={item.current ? "page" : undefined}
+                      onClick={() => setActiveSection(item.id)}
                     >
                       <item.icon
                         className={classNames(
@@ -275,7 +292,11 @@ export default function Profile() {
                 </nav>
               </aside>
 
-              <ProfileSection />
+              {activeSection === "profile" ? (
+                <ProfileSection />
+              ) : activeSection === "product" ? (
+                <Product />
+              ) : null}
             </div>
           </div>
         </div>
