@@ -50,7 +50,7 @@ export default function SearchPanel() {
   return (
     <Combobox
       as="div"
-      className="relative mt-10 mx-10 sm:mx-0 transform divide-y divide-gray-100 rounded-xl bg-white ring-1 ring-black ring-opacity-5 transition-all"
+      className="relative mt-10 mb-10 mx-10 sm:mx-0 transform divide-y divide-gray-100 w-6/12	 rounded-xl bg-white ring-1 ring-black ring-opacity-5 transition-all"
       onChange={(person) => (window.location = person.url)}
     >
       <div>
