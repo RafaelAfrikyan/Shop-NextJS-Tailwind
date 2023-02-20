@@ -27,9 +27,14 @@ export default function LogInSignUp({ isSignUp }: T_Props) {
                 alt="Workflow"
                 onClick={handleClick}
               /> */}
-                  <Image src={Logo}  onClick={handleClick} alt="logo" className={classNames(
+              <Image
+                src={Logo}
+                onClick={handleClick}
+                alt="logo"
+                className={classNames(
                   isSignUp ? "h-12 w-auto  mb-10" : "h-12 w-auto  mb-24"
-                )} />
+                )}
+              />
 
               <h2 className="mt-6 text-3xl font-extrabold text-gray-900">
                 {isSignUp ? "Գրանցվել" : "Մուտք գործել"}
@@ -45,14 +50,14 @@ export default function LogInSignUp({ isSignUp }: T_Props) {
                   <div className="w-full border-t border-gray-300" />
                 </div>
                 <div className="relative flex justify-center">
-                  <span className="px-2 bg-white text-sm text-gray-500">
+                  <span className="px-2  bg-white text-sm text-gray-500">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
                       strokeWidth={1.5}
                       stroke="currentColor"
-                      className="w-6 h-6"
+                      className="w-6 h-6 animate-spin"
                     >
                       <path
                         strokeLinecap="round"

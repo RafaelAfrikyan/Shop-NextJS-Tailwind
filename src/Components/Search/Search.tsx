@@ -50,16 +50,16 @@ export default function SearchPanel() {
   return (
     <Combobox
       as="div"
-      className="relative mt-10 mb-10 mx-10 sm:mx-0 transform divide-y divide-gray-100 w-6/12	 rounded-xl bg-white ring-1 ring-black ring-opacity-5 transition-all"
+      className="relative mt-10 mb-10 mx-10 sm:mx-0 border-indigo-700 transform divide-y divide-indigo-700 w-6/12	 rounded-xl bg-white ring-1 ring-black ring-opacity-5 transition-all"
       onChange={(person) => (window.location = person.url)}
     >
       <div>
         <SearchIcon
-          className="pointer-events-none absolute top-3.5 left-4 h-5 w-5 text-gray-400"
+          className="pointer-events-none absolute top-3.5 left-4 h-5 w-5 text-gray-800"
           aria-hidden="true"
         />
         <Combobox.Input
-          className="h-12 w-full border-0 bg-transparent pl-11 pr-4 text-sm text-gray-800 placeholder-gray-400 focus:ring-0"
+          className="h-12 w-full border-0 bg-transparent pl-11 pr-4 text-sm text-gray-800 placeholder-indigo-700 focus:ring-0"
           placeholder="Search..."
           onChange={(event) => setQuery(event.target.value)}
         />
@@ -68,7 +68,7 @@ export default function SearchPanel() {
       {filteredResults.length > 0 && (
         <Combobox.Options
           static
-          className="absolute z-50 w-full h-72 max-h-72 scroll-py-2 overflow-y-auto py-2 text-sm text-gray-800"
+          className="absolute z-50 w-full b-indigo-700 bg-white h-72 max-h-72 scroll-py-2 overflow-y-auto py-2 text-sm text-gray-800"
         >
           {filteredResults.map((person) => (
             <Combobox.Option

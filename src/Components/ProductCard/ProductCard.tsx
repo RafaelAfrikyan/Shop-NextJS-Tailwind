@@ -1,23 +1,24 @@
+import { T_Cards } from "@/Helpers/types";
 import { FC } from "react";
 
-const ProductCard: FC = () => {
+const ProductCard: FC<T_Cards> = ({title, price, img, model}) => {
   return (
     <div className=" p-4 w-80">
-      <a className="block relative h-48 rounded overflow-hidden">
+      <a className="block  h-48 rounded overflow-hidden">
         <img
           alt="ecommerce"
           className="object-cover object-center w-full h-full block"
-          src="https://dummyimage.com/420x260"
+          src={img}
         ></img>
       </a>
       <div className="mt-4">
         <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-          CATEGORY
+        {model}
         </h3>
         <h2 className="text-gray-900 title-font text-lg font-medium">
-          The Catalyzer
+          {title}
         </h2>
-        <p className="mt-1">$16.00</p>
+        <p className="mt-1">{price}դրամ</p>
       </div>
     </div>
   );
