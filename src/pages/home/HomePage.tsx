@@ -1,5 +1,4 @@
 import SearchPanel from "@/Components/Search/Search";
-import Link from "next/link";
 import ProductCard from "@/Components/ProductCard/ProductCard";
 import { cards } from "@/Helpers/Constants/cards";
 

@@ -19,24 +19,16 @@ export default function LogInSignUp({ isSignUp }: T_Props) {
         <div className="flex-1 flex flex-col justify-start py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
           <div className="mx-auto  w-full max-w-sm lg:w-96">
             <div>
-              {/* <img
-                className={classNames(
-                  isSignUp ? "h-12 w-auto  mb-10" : "h-12 w-auto  mb-24"
-                )}
-                src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                alt="Workflow"
-                onClick={handleClick}
-              /> */}
               <Image
                 src={Logo}
                 onClick={handleClick}
                 alt="logo"
                 className={classNames(
-                  isSignUp ? "h-14 w-auto  mb-10" : "h-12 w-auto  mb-24"
+                  isSignUp ? "h-12 w-auto  mb-10" : "h-12 w-auto  mb-24"
                 )}
               />
 
-              <h2 className="mt-6 text-3xl font-extrabold text-gray-900">
+              <h2 className="mt-6 text-3xl font-extrabold text-violet-900">
                 {isSignUp ? "Գրանցվել" : "Մուտք գործել"}
               </h2>
             </div>
@@ -50,7 +42,7 @@ export default function LogInSignUp({ isSignUp }: T_Props) {
                   <div className="w-full border-t border-gray-300" />
                 </div>
                 <div className="relative flex justify-center">
-                  <span className="px-2  bg-white text-sm text-gray-500">
+                  <span className="px-2  bg-white text-sm text-violet-900">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -81,7 +73,7 @@ export default function LogInSignUp({ isSignUp }: T_Props) {
                       <div>
                         <label
                           htmlFor="name"
-                          className="block text-sm font-medium text-gray-700"
+                          className="block text-sm font-medium text-violet-900"
                         >
                           Անուն
                         </label>
@@ -97,7 +89,7 @@ export default function LogInSignUp({ isSignUp }: T_Props) {
                       <div>
                         <label
                           htmlFor="surname"
-                          className="block text-sm font-medium text-gray-700"
+                          className="block text-sm font-medium text-violet-900"
                         >
                           Ազգանուն
                         </label>
@@ -117,7 +109,7 @@ export default function LogInSignUp({ isSignUp }: T_Props) {
                     <div>
                       <label
                         htmlFor="number"
-                        className="block text-sm font-medium text-gray-700"
+                        className="block text-sm font-medium text-violet-900"
                       >
                         Հեռախոսահամար
                       </label>
@@ -136,7 +128,7 @@ export default function LogInSignUp({ isSignUp }: T_Props) {
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-medium text-gray-700"
+                      className="block text-sm font-medium text-violet-900"
                     >
                       Էլեկտրոնային հասցե
                     </label>
@@ -155,7 +147,7 @@ export default function LogInSignUp({ isSignUp }: T_Props) {
                   <div className="space-y-1">
                     <label
                       htmlFor="password"
-                      className="block text-sm font-medium text-gray-700"
+                      className="block text-sm font-medium text-violet-900"
                     >
                       Գաղտնաբառ
                     </label>
@@ -178,11 +170,11 @@ export default function LogInSignUp({ isSignUp }: T_Props) {
                           id="remember-me"
                           name="remember-me"
                           type="checkbox"
-                          className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                          className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-violet-300 rounded"
                         />
                         <label
                           htmlFor="remember-me"
-                          className="ml-2 block text-sm text-gray-900"
+                          className="ml-2 block text-sm text-violet-900"
                         >
                           Հիշել ինձ
                         </label>
@@ -202,7 +194,7 @@ export default function LogInSignUp({ isSignUp }: T_Props) {
                   <div>
                     <button
                       type="submit"
-                      className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-violet-900 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
                       {isSignUp ? "Գրանցվել" : "Մուտք"}
                     </button>
