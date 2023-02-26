@@ -44,6 +44,7 @@ import Image from "next/image";
 import LocationInput from "@/Components/LocationInput/LocationInput";
 import ProfileSection from "@/Components/ProfileSection";
 import Product from "@/Components/Products/Product";
+import AddProductModal from "@/Components/AddProductModal/AddProductModal";
 
 const user = {
   name: "Debbie Lewis",
@@ -90,15 +91,19 @@ const userNavigation = [
   { name: "Sign out", href: "#" },
 ];
 
-export default function Profile() {
+const Profile = () => {
   const [availableToHire, setAvailableToHire] = useState(true);
   const [privateAccount, setPrivateAccount] = useState(false);
   const [allowCommenting, setAllowCommenting] = useState(true);
   const [allowMentions, setAllowMentions] = useState(true);
   const [activeSection, setActiveSection] = useState("profile");
-
+  const [openAddProductModal, setOpenAddProductModal] = useState(false);
   return (
     <div>
+      <AddProductModal
+        openAddProductModal={openAddProductModal}
+        setOpenAddProductModal={setOpenAddProductModal}
+      />
       <Disclosure
         as="div"
         className="relative bg-gradient-to-r from-violet-500 to-fuchsia-500  pb-32 overflow-hidden"
@@ -116,6 +121,7 @@ export default function Profile() {
                   <div className="px-2 flex items-center lg:px-0">
                     <div className="flex-shrink-0">
                       <button
+                        onClick={() => setOpenAddProductModal(true)}
                         type="button"
                         className="inline-flex  mx-auto items-center px-6 py-3 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                       >
@@ -303,4 +309,5 @@ export default function Profile() {
       </main>
     </div>
   );
-}
+};
+export default Profile;
