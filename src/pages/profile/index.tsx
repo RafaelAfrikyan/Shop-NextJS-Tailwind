@@ -36,12 +36,8 @@ import {
   KeyIcon,
   MenuIcon,
   UserCircleIcon,
-  ViewGridAddIcon,
-  XIcon,
 } from "@heroicons/react/outline";
 import { classNames } from "@/Helpers/Functions/functions";
-import Image from "next/image";
-import LocationInput from "@/Components/LocationInput/LocationInput";
 import ProfileSection from "@/Components/ProfileSection";
 import Product from "@/Components/Products/Product";
 import AddProductModal from "@/Components/AddProductModal/AddProductModal";
@@ -53,12 +49,12 @@ const user = {
   imageUrl:
     "https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=320&h=320&q=80",
 };
-const navigation = [
-  { name: "Dashboard", href: "#", current: true },
-  { name: "Jobs", href: "#", current: false },
-  { name: "Applicants", href: "#", current: false },
-  { name: "Company", href: "#", current: false },
-];
+// const navigation = [
+//   { name: "Dashboard", href: "#", current: true },
+//   { name: "Jobs", href: "#", current: false },
+//   { name: "Applicants", href: "#", current: false },
+//   { name: "Company", href: "#", current: false },
+// ];
 const subNavigation = [
   {
     name: "Օգտահաշիվ",
@@ -86,9 +82,9 @@ const subNavigation = [
   },
 ];
 const userNavigation = [
-  { name: "Your Profile", href: "#" },
-  { name: "Settings", href: "#" },
-  { name: "Sign out", href: "#" },
+  { name: "Վերադառնալ կայք", href: "/" },
+  { name: "Կարգավորումներ", href: "#" },
+  { name: "Հեռանալ", href: "#" },
 ];
 
 const Profile = () => {
@@ -202,26 +198,9 @@ const Profile = () => {
                 </div>
               </div>
 
-              <Disclosure.Panel className="bg-sky-900 lg:hidden">
-                <div className="pt-2 pb-3 px-2 space-y-1">
-                  {navigation.map((item) => (
-                    <Disclosure.Button
-                      key={item.name}
-                      as="a"
-                      href={item.href}
-                      className={classNames(
-                        item.current
-                          ? "bg-black bg-opacity-25"
-                          : "hover:bg-sky-800",
-                        "block rounded-md py-2 px-3 text-base font-medium text-white"
-                      )}
-                    >
-                      {item.name}
-                    </Disclosure.Button>
-                  ))}
-                </div>
+              <Disclosure.Panel className="bg-sky-900 z-20 lg:hidden">
                 <div className="pt-4 pb-3 border-t border-sky-800">
-                  <div className="flex items-center px-4">
+                  <div className="flex z-10 items-center px-4">
                     <div className="flex-shrink-0">
                       <img
                         className="rounded-full h-10 w-10"

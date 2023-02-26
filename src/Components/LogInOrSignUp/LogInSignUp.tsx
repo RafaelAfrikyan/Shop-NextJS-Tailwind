@@ -32,7 +32,7 @@ export default function LogInSignUp({ isSignUp }: T_Props) {
                 onClick={handleClick}
                 alt="logo"
                 className={classNames(
-                  isSignUp ? "h-12 w-auto  mb-10" : "h-12 w-auto  mb-24"
+                  isSignUp ? "h-14 w-auto  mb-10" : "h-12 w-auto  mb-24"
                 )}
               />
 

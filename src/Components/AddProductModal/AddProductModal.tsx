@@ -1,7 +1,6 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { FC, Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { CheckIcon } from "@heroicons/react/outline";
 
 type T_Props = {
   openAddProductModal: boolean;
@@ -12,7 +11,6 @@ const AddProductModal: FC<T_Props> = ({
   openAddProductModal,
   setOpenAddProductModal,
 }) => {
-  //   const [open, setOpen] = useState(true);
 
   return (
     <Transition.Root show={openAddProductModal} as={Fragment}>
